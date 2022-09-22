@@ -1,10 +1,13 @@
 defmodule TodoApp.Todos.Task do
   use Ecto.Schema
   import Ecto.Changeset
+  alias TodoApp.Accounts.User
 
   schema "task" do
+    belongs_to :user, User
     field :description, :string
     field :done, :boolean, default: false
+    field :expiration, :naive_datetime
 
     timestamps()
   end
