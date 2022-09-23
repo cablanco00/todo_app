@@ -145,6 +145,17 @@ defmodule TodoApp.Todos do
       {:error, %Ecto.Changeset{}}
 
   """
+
+  def create_list_with_tasks(attrs \\ %{}) do
+    %List{}
+    |> List.changeset_with_tasks(attrs)
+    |> Repo.insert()
+    |> case do
+      :error -> IO.inspect("falla al insentar en list")
+    end
+
+  end
+
   def create_list(attrs \\ %{}) do
     %List{}
     |> List.changeset(attrs)
