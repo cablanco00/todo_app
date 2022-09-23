@@ -18,7 +18,6 @@ defmodule TodoApp.Todos.Task do
     task
     |> cast(attrs, [:description, :done, :expiration, :user_id])
     |> validate_required([:description, :done, :user_id])
-    # |> validate_equal(:description, "Hola mundo")
     |> validate_length(:description, min: 5)
     |> foreign_key_constraint(:user_id)
   end
