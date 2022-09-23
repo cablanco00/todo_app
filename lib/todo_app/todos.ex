@@ -147,6 +147,8 @@ defmodule TodoApp.Todos do
   """
 
   def create_list_with_tasks(attrs \\ %{}) do
+    IO.inspect(binding())
+
     %List{}
     |> List.changeset_with_tasks(attrs)
     |> Repo.insert()
